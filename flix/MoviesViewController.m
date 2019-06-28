@@ -49,6 +49,22 @@
 
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
+            
+            // if there is a network error, create an alert controller
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"Cannot get movies! The internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            // create a try again action
+            UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again!" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
+                    // function calls itself to try again!
+                    [self fetchMovies];
+                }];
+            // add the cancel action to the alertController
+            [alert addAction:tryAgainAction];
+
+            [self presentViewController:alert animated:YES completion:^{
+                // function calls itself after the alert controller has finished presenting
+//                [self fetchMovies];
+            }];
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
