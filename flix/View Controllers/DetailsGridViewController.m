@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *overviewLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -37,7 +39,12 @@
     
     self.titleLabel.text = self.movie[@"title"];
     self.overviewLabel.text = self.movie[@"overview"];
-    
+    NSString* rating = [NSString stringWithFormat:@"%@", self.movie[@"vote_average"]];
+    self.ratingLabel.text = rating;
+    self.ratingLabel.backgroundColor = [UIColor colorWithRed:0.1 green:0.45 blue:0.1 alpha:0.8];
+    self.ratingLabel.layer.cornerRadius = 10.0;
+    self.ratingLabel.clipsToBounds = true;
+    self.dateLabel.text = self.movie[@"release_date"];
     [self.titleLabel sizeToFit];
     [self.overviewLabel sizeToFit];
     

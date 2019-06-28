@@ -27,6 +27,18 @@
     self.searchBar.delegate = self;
     [self fetchMovies];
     
+//    self.navigationItem.title = @"Movies";
+//    UINavigationBar *navigatlgdkfdhcvvdhvrfglnitltrubglfelekflhjnnccgrktgrjrubvbfcgbuveubvluionBar = self.navigationController.navigationBar;
+//    navigationBar.barTintColor = [UIColor darkGrayColor];
+//    navigationBar.tintColor = [UIColor whiteColor];
+//    navigationBar.translucent = NO;
+//
+//    NSShadow *shadow = [NSShadow new];
+//    shadow.shadowColor = [[UIColor grayColor] colorWithAlphaComponent:0.3];
+//    shadow.shadowOffset = CGSizeMake(1, 1);
+//    shadow.shadowBlurRadius = 3;
+//    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
+    
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.collectionView.collectionViewLayout;
     
     layout.minimumInteritemSpacing = 4;
@@ -37,6 +49,7 @@
     CGFloat itemHeight = itemWidth * 1.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)fetchMovies {
@@ -112,7 +125,11 @@
     
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
-    
+    NSString* rating = [NSString stringWithFormat:@"%@", movie[@"vote_average"]];
+    cell.ratingLabel.text = rating;
+    cell.ratingLabel.backgroundColor = [UIColor colorWithRed:0.1 green:0.45 blue:0.1 alpha:0.8];
+    cell.ratingLabel.layer.cornerRadius = 10.0;
+    cell.ratingLabel.clipsToBounds = true;
     return cell;
 }
 

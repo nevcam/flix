@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+
 @end
 
 @implementation MoviesViewController
@@ -33,6 +34,20 @@
     
     [self.activityIndicator startAnimating];
     [self fetchMovies];
+    self.navigationItem.title = @"Movies";
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+//    [navigationBar setBackgroundColor:UIColor.blackColor];
+//    navigationBar.tintColor = [UIColor redColor];
+//    self.navigationController.navigationBar.translucent = NO;
+    navigationBar.barTintColor = [UIColor darkGrayColor];
+    navigationBar.tintColor = [UIColor whiteColor];
+    navigationBar.translucent = NO;
+    
+    NSShadow *shadow = [NSShadow new];
+    shadow.shadowColor = [[UIColor grayColor] colorWithAlphaComponent:0.3];
+    shadow.shadowOffset = CGSizeMake(1, 1);
+    shadow.shadowBlurRadius = 3;
+    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
@@ -107,6 +122,11 @@
     
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
+    NSString* rating = [NSString stringWithFormat:@"%@", movie[@"vote_average"]];
+    cell.ratingLabel.text = rating;
+    cell.ratingLabel.backgroundColor = [UIColor colorWithRed:0.1 green:0.45 blue:0.1 alpha:0.8];
+    cell.ratingLabel.layer.cornerRadius = 10.0;
+    cell.ratingLabel.clipsToBounds = true;
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
