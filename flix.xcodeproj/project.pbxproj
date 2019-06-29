@@ -166,8 +166,6 @@
 				D991C16022C3FDD20087ADCC /* Models */,
 				D991C15F22C3FDC40087ADCC /* Views */,
 				D991C15E22C3FDB90087ADCC /* View Controllers */,
-				D90A206522C57A7500DD9BE5 /* MovieCollectionCell.h */,
-				D90A206622C57A7500DD9BE5 /* MovieCollectionCell.m */,
 				D991C12922C3EB990087ADCC /* AppDelegate.h */,
 				D991C12A22C3EB990087ADCC /* AppDelegate.m */,
 				D991C12F22C3EB990087ADCC /* Main.storyboard */,
@@ -217,6 +215,8 @@
 		D991C15F22C3FDC40087ADCC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D90A206522C57A7500DD9BE5 /* MovieCollectionCell.h */,
+				D90A206622C57A7500DD9BE5 /* MovieCollectionCell.m */,
 				D991C16122C424040087ADCC /* MovieCell.h */,
 				D991C16222C424040087ADCC /* MovieCell.m */,
 			);
