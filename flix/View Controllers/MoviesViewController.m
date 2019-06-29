@@ -47,7 +47,7 @@
     shadow.shadowColor = [[UIColor grayColor] colorWithAlphaComponent:0.3];
     shadow.shadowOffset = CGSizeMake(1, 1);
     shadow.shadowBlurRadius = 3;
-    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
+    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
@@ -190,7 +190,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     
     // get the tapped movie using the indexPath for the tapped cell
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
     // to hand the movie : get the new view controller using [segue destinationViewController] and cast it
     DetailsViewController *detailsViewController = [segue destinationViewController];
     

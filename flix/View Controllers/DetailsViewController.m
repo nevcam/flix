@@ -8,6 +8,7 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "TrailerViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
@@ -51,14 +52,19 @@
     
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSDictionary *movieToPass = self.movie;
+    // to hand the movie : get the new view controller using [segue destinationViewController] and cast it
+    TrailerViewController *trailerViewController = [segue destinationViewController];
+    
+    trailerViewController.movieToPass = movieToPass;
 }
-*/
+
 
 @end

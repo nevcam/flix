@@ -27,17 +27,17 @@
     self.searchBar.delegate = self;
     [self fetchMovies];
     
-//    self.navigationItem.title = @"Movies";
-//    UINavigationBar *navigatlgdkfdhcvvdhvrfglnitltrubglfelekflhjnnccgrktgrjrubvbfcgbuveubvluionBar = self.navigationController.navigationBar;
-//    navigationBar.barTintColor = [UIColor darkGrayColor];
-//    navigationBar.tintColor = [UIColor whiteColor];
-//    navigationBar.translucent = NO;
-//
-//    NSShadow *shadow = [NSShadow new];
-//    shadow.shadowColor = [[UIColor grayColor] colorWithAlphaComponent:0.3];
-//    shadow.shadowOffset = CGSizeMake(1, 1);
-//    shadow.shadowBlurRadius = 3;
-//    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
+    self.navigationItem.title = @"Movies";
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    navigationBar.barTintColor = [UIColor darkGrayColor];
+    navigationBar.tintColor = [UIColor whiteColor];
+    navigationBar.translucent = NO;
+
+    NSShadow *shadow = [NSShadow new];
+    shadow.shadowColor = [[UIColor grayColor] colorWithAlphaComponent:0.3];
+    shadow.shadowOffset = CGSizeMake(1, 1);
+    shadow.shadowBlurRadius = 3;
+    navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSForegroundColorAttributeName : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:0.8], NSShadowAttributeName : shadow};
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*) self.collectionView.collectionViewLayout;
     
@@ -105,7 +105,7 @@
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
     
     // get the tapped movie using the indexPath for the tapped cell
-    NSDictionary *movie = self.movies[indexPath.item];
+    NSDictionary *movie = self.filteredMovies[indexPath.item];
     // to hand the movie : get the new view controller using [segue destinationViewController] and cast it
     DetailsGridViewController *detailsGridViewController = [segue destinationViewController];
     
